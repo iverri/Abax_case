@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS messagePayloads (
+    id INT PRIMARY KEY AUTOINCREMENT,
+    message VARCHAR(255) NOT NULL,
+    payload VARCHAR(255) NOT NULL
+);
