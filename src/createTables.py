@@ -6,9 +6,24 @@ def createTables():
     cur.execute(
         """
     CREATE TABLE IF NOT EXISTS messagePayloads (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    message VARCHAR(255) NOT NULL,
-    payload VARCHAR(255) NOT NULL
+        BusID INTEGER PRIMARY KEY,
+        Route TEXT NOT NULL,
+        Direction TEXT NOT NULL,
+        Latitude REAL NOT NULL,
+        Longitude REAL NOT NULL,
+        LastUpdate TEXT NOT NULL,
+        LastStop INTEGER
 );
     """
     )
+    con.commit()
+
+
+def dropTables():
+    cur = con.cursor()
+    cur.execute(
+        """
+    DROP TABLE IF EXISTS messagePayloads;
+    """
+    )
+    con.commit()
